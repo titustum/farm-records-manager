@@ -20,9 +20,10 @@ class SaleResource extends Resource
 {
     protected static ?string $model = Sale::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCurrencyDollar;
+    protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::CurrencyDollar;
 
-    protected static ?string $recordTitleAttribute = 'amount';
+    protected static ?string $recordTitleAttribute = 'item';
 
     public static function form(Schema $schema): Schema
     {

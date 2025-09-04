@@ -11,20 +11,12 @@ class SaleInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('user_id')
+                TextEntry::make('item'),
+                TextEntry::make('amount')
                     ->numeric(),
-                TextEntry::make('product_type'),
-                TextEntry::make('cow_id')
-                    ->numeric(),
-                TextEntry::make('quantity')
-                    ->numeric(),
-                TextEntry::make('unit_price')
-                    ->numeric(),
-                TextEntry::make('total_price')
-                    ->numeric(),
-                TextEntry::make('buyer_name'),
-                TextEntry::make('sale_date')
+                TextEntry::make('date')
                     ->date(),
+                TextEntry::make('description'),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')

@@ -15,12 +15,7 @@ class ExpensesTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('category')
-                    ->searchable(),
-                TextColumn::make('description')
                     ->searchable(),
                 TextColumn::make('amount')
                     ->numeric()
@@ -28,6 +23,8 @@ class ExpensesTable
                 TextColumn::make('date')
                     ->date()
                     ->sortable(),
+                TextColumn::make('description')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -11,14 +11,12 @@ class ExpenseInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('user_id')
-                    ->numeric(),
                 TextEntry::make('category'),
-                TextEntry::make('description'),
                 TextEntry::make('amount')
                     ->numeric(),
                 TextEntry::make('date')
                     ->date(),
+                TextEntry::make('description'),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')

@@ -15,28 +15,16 @@ class SalesTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('product_type')
+                TextColumn::make('item')
                     ->searchable(),
-                TextColumn::make('cow_id')
+                TextColumn::make('amount')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('quantity')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('unit_price')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('total_price')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('buyer_name')
-                    ->searchable(),
-                TextColumn::make('sale_date')
+                TextColumn::make('date')
                     ->date()
                     ->sortable(),
+                TextColumn::make('description')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

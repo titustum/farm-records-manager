@@ -12,25 +12,14 @@ class SaleForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('product_type')
+                TextInput::make('item')
                     ->required(),
-                TextInput::make('cow_id')
-                    ->numeric(),
-                TextInput::make('quantity')
+                TextInput::make('amount')
                     ->required()
                     ->numeric(),
-                TextInput::make('unit_price')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('total_price')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('buyer_name'),
-                DatePicker::make('sale_date')
+                DatePicker::make('date')
                     ->required(),
+                TextInput::make('description'),
             ]);
     }
 }
