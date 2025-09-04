@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Crops\Schemas;
 
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class CropInfolist
@@ -10,7 +11,16 @@ class CropInfolist
     {
         return $schema
             ->components([
-                //
+                TextEntry::make('name'),
+                TextEntry::make('season'),
+                TextEntry::make('planted_at')
+                    ->date(),
+                TextEntry::make('harvested_at')
+                    ->date(),
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }
