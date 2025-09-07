@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sale extends Model
+class CropExpense extends Model
 {
     protected $fillable = [
-        'item',
+        'category',
         'amount',
         'date',
         'description',

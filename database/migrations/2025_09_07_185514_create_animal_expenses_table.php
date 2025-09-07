@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('animal_expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('item'); // e.g., milk, maize
+            $table->string('category'); // e.g., medical, feed, wages
             $table->decimal('amount', 10, 2);
             $table->date('date');
             $table->string('description')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('animal_expenses');
     }
 };

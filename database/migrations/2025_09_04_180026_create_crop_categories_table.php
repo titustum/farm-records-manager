@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tools', function (Blueprint $table) {
+        Schema::create('crop_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('status')->default('available'); // or 'in_maintenance'
-            $table->integer('cost')->nullable();
-            $table->date('purchased_at')->nullable();
+            $table->string('image');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tools');
+        Schema::dropIfExists('crop_categories');
     }
 };
