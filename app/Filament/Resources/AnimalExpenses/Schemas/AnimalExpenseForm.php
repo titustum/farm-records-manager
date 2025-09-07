@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\AnimalExpenses\Schemas;
 
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class AnimalExpenseForm
@@ -10,7 +13,20 @@ class AnimalExpenseForm
     {
         return $schema
             ->components([
-                //
+                Select::make('category')
+                    ->options([
+                        'feeds' => 'Feeds',
+                        'medical' => 'Medical',
+                        'wages' => 'wages',
+                        'serving' => 'Serving',
+                    ])
+                    ->required(),
+                TextInput::make('amount')
+                    ->required()
+                    ->numeric(),
+                DatePicker::make('date')
+                    ->required(),
+                TextInput::make('description'),
             ]);
     }
 }

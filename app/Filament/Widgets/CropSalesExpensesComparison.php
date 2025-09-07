@@ -2,8 +2,8 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\CropSale; 
-use App\Models\CropExpense; 
+use App\Models\CropExpense;
+use App\Models\CropSale;
 use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
@@ -42,13 +42,13 @@ class CropSalesExpensesComparison extends ChartWidget
                 [
                     'label' => 'Sales (KSh)',
                     'backgroundColor' => 'rgba(34,197,94,0.4)',
-                    'borderColor' => 'rgba(34,197,94,1)', 
+                    'borderColor' => 'rgba(34,197,94,1)',
                     'data' => $salesData,
                 ],
                 [
                     'label' => 'Expenses (KSh)',
                     'backgroundColor' => 'rgba(239,68,68,0.4)',
-                    'borderColor' => 'rgba(239,68,68,1)', 
+                    'borderColor' => 'rgba(239,68,68,1)',
                     'data' => $expensesData,
                 ],
             ],

@@ -11,11 +11,11 @@ class ExpenseCategoryBreakdown extends ChartWidget
     protected ?string $heading = 'Expense Category Breakdown';
 
     protected static ?int $sort = 3;
- 
+
     protected function getData(): array
     {
         // Get all expense categories with total amount
-        $categories = CropExpense::selectRaw('category, SUM(amount) as total') 
+        $categories = CropExpense::selectRaw('category, SUM(amount) as total')
             ->groupBy('crop_category_id')
             ->pluck('total', 'category')
             ->toArray();
@@ -50,6 +50,7 @@ class ExpenseCategoryBreakdown extends ChartWidget
         for ($i = 0; $i < $count; $i++) {
             $colors[] = $palette[$i % count($palette)];
         }
+
         return $colors;
     }
 
