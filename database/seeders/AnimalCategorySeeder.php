@@ -13,7 +13,6 @@ class AnimalCategorySeeder extends Seeder
      */
     public function run(): void
     {
-
-         
+        
     }
 }

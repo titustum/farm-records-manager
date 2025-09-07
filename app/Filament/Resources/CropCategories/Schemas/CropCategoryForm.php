@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Animals\Schemas;
+namespace App\Filament\Resources\CropCategories\Schemas;
 
-use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
-class AnimalForm
+class CropCategoryForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -14,12 +15,11 @@ class AnimalForm
             ->components([
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('type')
+                FileUpload::make('image')
+                    ->image()
                     ->required(),
-                DatePicker::make('birth_date'),
-                TextInput::make('status')
-                    ->required()
-                    ->default('active'),
+                Textarea::make('description')
+                    ->columnSpanFull(),
             ]);
     }
 }

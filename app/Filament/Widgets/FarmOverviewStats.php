@@ -4,9 +4,11 @@ namespace App\Filament\Widgets;
 
 use App\Models\Animal;
 use App\Models\Crop;
+use App\Models\CropSale;
 use App\Models\Tool;
-use App\Models\Sale;
-use App\Models\Expense;
+use App\Models\AnimalSale;
+use App\Models\CropExpense;
+use App\Models\AnimalExpense;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -19,8 +21,8 @@ class FarmOverviewStats extends StatsOverviewWidget
         $totalAnimals = Animal::count();
         $totalCrops = Crop::count();
         $totalTools = Tool::count();
-        $sales = Sale::sum('amount');
-        $expenses = Expense::sum('amount');
+        $sales = CropSale::sum('amount') + AnimalSale::sum('amount');
+        $expenses = CropExpense::sum('amount') + CropSale::sum('amount');
         $profit = $sales - $expenses;
 
         return [
