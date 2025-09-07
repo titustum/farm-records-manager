@@ -16,8 +16,7 @@ class AnimalCategoryForm
                 TextInput::make('name')
                     ->required(),
                 FileUpload::make('image')
-                    ->image()
-                    ->required(),
+                    ->image(),
                 Textarea::make('description')
                     ->columnSpanFull(),
             ]);
