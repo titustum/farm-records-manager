@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
             CropCategorySeeder::class,
             AnimalSeeder::class,
             CropSeeder::class,
+            AnimalExpenseSeeder::class,
+            CropExpenseSeeder::class,
+            AnimalSaleSeeder::class,
+            CropSaleSeeder::class, // ← Add this
             ToolSeeder::class,
         ]);
     }

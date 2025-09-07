@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Animals\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -14,7 +15,8 @@ class AnimalForm
             ->components([
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('type')
+                Select::make('animal_category_id')
+                    ->relationship('category', 'name')
                     ->required(),
                 DatePicker::make('birth_date'),
                 TextInput::make('status')

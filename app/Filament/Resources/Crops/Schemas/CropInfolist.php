@@ -11,7 +11,8 @@ class CropInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('crop_category_id')
+                    ->numeric(),
                 TextEntry::make('season'),
                 TextEntry::make('planted_at')
                     ->date(),

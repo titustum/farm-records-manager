@@ -17,7 +17,7 @@ class AnimalsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('type')
+                TextColumn::make('category.name')
                     ->searchable(),
                 TextColumn::make('birth_date')
                     ->date()

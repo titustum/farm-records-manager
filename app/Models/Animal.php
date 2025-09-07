@@ -11,5 +11,12 @@ class Animal extends Model
         'type',
         'birth_date',
         'status',
+        'animal_category_id',
     ];
+
+    // belong to animal category
+    public function category()
+    {
+        return $this->belongsTo(AnimalCategory::class, 'animal_category_id');
+    }
 }
