@@ -16,7 +16,7 @@ class CropSaleSeeder extends Seeder
         DB::table('crop_sales')->insert([
             [
                 'item' => 'Maize',
-                'amount' => 3200.00,
+                'amount' => 32000.00,
                 'date' => Carbon::parse('2025-08-15'),
                 'description' => 'Sold 10 bags of maize at local market',
                 'created_at' => now(),
@@ -24,7 +24,7 @@ class CropSaleSeeder extends Seeder
             ],
             [
                 'item' => 'Beans',
-                'amount' => 2700.50,
+                'amount' => 27000.50,
                 'date' => Carbon::parse('2025-08-20'),
                 'description' => 'Bean harvest sales from western plot',
                 'created_at' => now(),
@@ -32,7 +32,7 @@ class CropSaleSeeder extends Seeder
             ],
             [
                 'item' => 'Tomatoes',
-                'amount' => 850.75,
+                'amount' => 8500.75,
                 'date' => Carbon::parse('2025-07-10'),
                 'description' => 'Sale of tomatoes to roadside vendors',
                 'created_at' => now(),
@@ -40,7 +40,7 @@ class CropSaleSeeder extends Seeder
             ],
             [
                 'item' => 'Groundnuts',
-                'amount' => 1900.00,
+                'amount' => 19000.00,
                 'date' => Carbon::parse('2025-09-01'),
                 'description' => '5 bags of groundnuts sold to cooperative',
                 'created_at' => now(),

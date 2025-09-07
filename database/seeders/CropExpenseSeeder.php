@@ -16,7 +16,7 @@ class CropExpenseSeeder extends Seeder
         DB::table('crop_expenses')->insert([
             [
                 'category' => 'seeds',
-                'amount' => 850.00,
+                'amount' => 8500.00,
                 'date' => Carbon::parse('2025-03-01'),
                 'description' => 'Purchase of maize and bean seeds for rainy season',
                 'created_at' => now(),
@@ -24,7 +24,7 @@ class CropExpenseSeeder extends Seeder
             ],
             [
                 'category' => 'fertilizer',
-                'amount' => 1200.50,
+                'amount' => 12000.50,
                 'date' => Carbon::parse('2025-03-10'),
                 'description' => 'NPK fertilizer for maize field',
                 'created_at' => now(),
@@ -32,7 +32,7 @@ class CropExpenseSeeder extends Seeder
             ],
             [
                 'category' => 'pesticides',
-                'amount' => 600.00,
+                'amount' => 6000.00,
                 'date' => Carbon::parse('2025-04-15'),
                 'description' => 'Insecticide spray for tomatoes',
                 'created_at' => now(),
@@ -40,7 +40,7 @@ class CropExpenseSeeder extends Seeder
             ],
             [
                 'category' => 'wages',
-                'amount' => 1500.00,
+                'amount' => 15000.00,
                 'date' => Carbon::parse('2025-04-30'),
                 'description' => 'Labor wages for planting and weeding',
                 'created_at' => now(),
@@ -48,7 +48,7 @@ class CropExpenseSeeder extends Seeder
             ],
             [
                 'category' => 'fencing',
-                'amount' => 2200.75,
+                'amount' => 22000.75,
                 'date' => Carbon::parse('2025-02-20'),
                 'description' => 'Repair and extension of crop field fence',
                 'created_at' => now(),

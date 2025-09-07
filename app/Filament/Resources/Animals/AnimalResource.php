@@ -9,6 +9,7 @@ use App\Filament\Resources\Animals\Pages\ViewAnimal;
 use App\Filament\Resources\Animals\Schemas\AnimalForm;
 use App\Filament\Resources\Animals\Schemas\AnimalInfolist;
 use App\Filament\Resources\Animals\Tables\AnimalsTable;
+use App\Livewire\AnimalCategoryStats;
 use App\Models\Animal;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -58,6 +59,13 @@ class AnimalResource extends Resource
             'create' => CreateAnimal::route('/create'),
             'view' => ViewAnimal::route('/{record}'),
             'edit' => EditAnimal::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            AnimalCategoryStats::class,
         ];
     }
 }

@@ -2,21 +2,20 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\CropExpense;
-use App\Models\Expense;
+use App\Models\AnimalExpense;
 use Filament\Widgets\ChartWidget;
 
-class ExpenseCategoryBreakdown extends ChartWidget
+class AnimalExpenseCategoryBreakdown extends ChartWidget
 {
-    protected ?string $heading = 'Expense Category Breakdown';
+    protected ?string $heading = 'Animal Expense Category Breakdown';
 
     protected static ?int $sort = 3;
 
     protected function getData(): array
     {
         // Get all expense categories with total amount
-        $categories = CropExpense::selectRaw('category, SUM(amount) as total')
-            ->groupBy('crop_category_id')
+        $categories = AnimalExpense::selectRaw('category, SUM(amount) as total')
+            ->groupBy('category')
             ->pluck('total', 'category')
             ->toArray();
 
@@ -24,7 +23,7 @@ class ExpenseCategoryBreakdown extends ChartWidget
             'labels' => array_keys($categories),
             'datasets' => [
                 [
-                    'label' => 'Expenses',
+                    'label' => 'Livestock expenses',
                     'data' => array_values($categories),
                     'backgroundColor' => $this->generateColors(count($categories)),
                 ],
