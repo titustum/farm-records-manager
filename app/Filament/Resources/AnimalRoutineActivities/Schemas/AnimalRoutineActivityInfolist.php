@@ -17,7 +17,7 @@ class AnimalRoutineActivityInfolist
                 TextEntry::make('date_performed')
                     ->dateTime(),
                 TextEntry::make('cost')
-                    ->money(),
+                    ->money($currency="KES"),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')

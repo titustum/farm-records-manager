@@ -15,10 +15,7 @@ class AnimalRoutineActivityForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
+            ->components([ 
                 Select::make('animal_id')
                     ->relationship('animal', 'name')
                     ->required(),
@@ -30,7 +27,7 @@ class AnimalRoutineActivityForm
                     ->columnSpanFull(),
                 TextInput::make('cost')
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('KES'),
                 Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
             ]);
     }
