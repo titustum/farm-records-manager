@@ -42,6 +42,7 @@ class AnimalSeeder extends Seeder
                 'status' => 'sold',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'name' => 'Chicken 004',

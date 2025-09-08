@@ -39,6 +39,7 @@ class AnimalSaleSeeder extends Seeder
                 'description' => 'Sale of 2 goats for meat',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'item' => 'Manure',

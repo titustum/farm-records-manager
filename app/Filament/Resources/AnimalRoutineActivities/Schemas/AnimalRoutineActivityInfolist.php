@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AnimalRoutineActivities\Schemas;
 
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class AnimalRoutineActivityInfolist
@@ -10,7 +11,17 @@ class AnimalRoutineActivityInfolist
     {
         return $schema
             ->components([
-                //
+                TextEntry::make('user.name'),
+                TextEntry::make('animal.name'),
+                TextEntry::make('activity_name'),
+                TextEntry::make('date_performed')
+                    ->dateTime(),
+                TextEntry::make('cost')
+                    ->money(),
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }
