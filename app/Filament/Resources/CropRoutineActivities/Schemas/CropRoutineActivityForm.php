@@ -15,7 +15,7 @@ class CropRoutineActivityForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([ 
+            ->components([
                 Select::make('crop_id')
                     ->relationship('crop', 'name')
                     ->required(),

@@ -15,7 +15,7 @@ class AnimalRoutineActivityForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([ 
+            ->components([
                 Select::make('animal_id')
                     ->relationship('animal', 'name')
                     ->required(),
