@@ -57,6 +57,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->favicon(asset('images/transparent-tetu-logo.png'))
+            ->navigationGroups([
+                'Livestock', // This group will appear first
+                'Crop Products', // This group will appear second
+                'Routine Activities', // This group will appear third
+                'Inventory', // This group will appear third
             ]);
     }
 }
