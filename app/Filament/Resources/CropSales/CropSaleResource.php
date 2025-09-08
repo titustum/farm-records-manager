@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class CropSaleResource extends Resource
@@ -28,6 +29,8 @@ class CropSaleResource extends Resource
     protected static ?int $navigationSort = 4;
 
     protected static string|UnitEnum|null $navigationGroup = 'Crop Products';
+
+    // protected static ?string $navigationLabel = 'Sales';
 
     public static function form(Schema $schema): Schema
     {
@@ -59,5 +62,12 @@ class CropSaleResource extends Resource
             'view' => ViewCropSale::route('/{record}'),
             'edit' => EditCropSale::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 }

@@ -21,7 +21,7 @@ class AnimalSaleSeeder extends Seeder
                 'description' => 'Morning milk sales from 3 cows',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Eggs',
@@ -30,7 +30,7 @@ class AnimalSaleSeeder extends Seeder
                 'description' => 'Weekly sale of eggs from poultry unit',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Goat Meat',
@@ -39,7 +39,7 @@ class AnimalSaleSeeder extends Seeder
                 'description' => 'Sale of 2 goats for meat',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Manure',
@@ -48,7 +48,7 @@ class AnimalSaleSeeder extends Seeder
                 'description' => 'Organic manure sold to nearby farm',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
         ]);
     }

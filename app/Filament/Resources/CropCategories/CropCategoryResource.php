@@ -29,6 +29,8 @@ class CropCategoryResource extends Resource
 
     protected static string|UnitEnum|null $navigationGroup = 'Crop Products';
 
+    protected static ?string $navigationLabel = 'Categories';
+
     public static function form(Schema $schema): Schema
     {
         return CropCategoryForm::configure($schema);

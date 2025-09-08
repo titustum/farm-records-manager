@@ -3,9 +3,11 @@
 namespace App\Filament\Resources\Crops\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class CropForm
 {
@@ -15,10 +17,12 @@ class CropForm
             ->components([
                 Select::make('crop_category_id')
                     ->required()
-                    ->relationship('category', 'name'), // relationship method in Crop model,
+                    ->relationship('cropCategory', 'name'), // relationship method in Crop model,
+                TextInput::make('name'),
                 TextInput::make('season'),
                 DatePicker::make('planted_at'),
                 DatePicker::make('harvested_at'),
+                Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
             ]);
     }
 }

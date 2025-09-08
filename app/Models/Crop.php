@@ -20,4 +20,10 @@ class Crop extends Model
     {
         return $this->belongsTo(CropCategory::class);
     }
+
+    // belong to crop category
+    public function cropCategory()
+    {
+        return $this->belongsTo(CropCategory::class);
+    }
 }

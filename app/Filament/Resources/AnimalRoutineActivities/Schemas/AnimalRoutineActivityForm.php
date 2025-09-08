@@ -3,10 +3,12 @@
 namespace App\Filament\Resources\AnimalRoutineActivities\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class AnimalRoutineActivityForm
 {
@@ -29,6 +31,7 @@ class AnimalRoutineActivityForm
                 TextInput::make('cost')
                     ->numeric()
                     ->prefix('$'),
+                Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
             ]);
     }
 }

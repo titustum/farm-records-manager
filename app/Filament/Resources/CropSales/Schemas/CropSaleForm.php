@@ -3,8 +3,10 @@
 namespace App\Filament\Resources\CropSales\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class CropSaleForm
 {
@@ -20,6 +22,7 @@ class CropSaleForm
                 DatePicker::make('date')
                     ->required(),
                 TextInput::make('description'),
+                Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
             ]);
     }
 }

@@ -15,6 +15,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class AnimalRoutineActivityResource extends Resource
 {
@@ -23,6 +25,12 @@ class AnimalRoutineActivityResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'activity_name';
+
+    protected static ?int $navigationSort = 1;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Routine Activities';
+
+    protected static ?string $navigationLabel = 'Animal Activities';
 
     public static function form(Schema $schema): Schema
     {
@@ -54,5 +62,12 @@ class AnimalRoutineActivityResource extends Resource
             'view' => ViewAnimalRoutineActivity::route('/{record}'),
             'edit' => EditAnimalRoutineActivity::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 }

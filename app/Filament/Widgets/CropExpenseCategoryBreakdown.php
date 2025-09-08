@@ -4,17 +4,27 @@ namespace App\Filament\Widgets;
 
 use App\Models\CropExpense;
 use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\Auth;
 
 class CropExpenseCategoryBreakdown extends ChartWidget
 {
     protected ?string $heading = 'Crop Expense Category Breakdown';
 
-    protected static ?int $sort = 3;
+    protected static ?int $sort = 6;
 
     protected function getData(): array
     {
-        // Get all expense categories with total amount
-        $categories = CropExpense::selectRaw('category, SUM(amount) as total')
+        $user = Auth::user();
+        $isAdmin = $user->role === 'admin';
+
+        $query = CropExpense::query();
+
+        if (! $isAdmin) {
+            $query->where('user_id', $user->id);
+        }
+
+        $categories = $query
+            ->selectRaw('category, SUM(amount) as total')
             ->groupBy('category')
             ->pluck('total', 'category')
             ->toArray();
@@ -23,7 +33,7 @@ class CropExpenseCategoryBreakdown extends ChartWidget
             'labels' => array_keys($categories),
             'datasets' => [
                 [
-                    'label' => 'Crop expenses',
+                    'label' => 'Crop Expenses',
                     'data' => array_values($categories),
                     'backgroundColor' => $this->generateColors(count($categories)),
                 ],
@@ -33,16 +43,9 @@ class CropExpenseCategoryBreakdown extends ChartWidget
 
     protected function generateColors(int $count): array
     {
-        // Simple color palette, customize as needed
         $palette = [
-            '#EF4444', // red
-            '#F59E0B', // amber
-            '#10B981', // green
-            '#3B82F6', // blue
-            '#8B5CF6', // purple
-            '#EC4899', // pink
-            '#F87171', // light red
-            '#34D399', // light green
+            '#EF4444', '#F59E0B', '#10B981', '#3B82F6',
+            '#8B5CF6', '#EC4899', '#F87171', '#34D399',
         ];
 
         $colors = [];
@@ -55,6 +58,12 @@ class CropExpenseCategoryBreakdown extends ChartWidget
 
     protected function getType(): string
     {
-        return 'bar';
+        return 'bar'; // You can also use 'doughnut' or 'pie'
     }
+
+    // Optional: Restrict widget visibility
+    // public static function canView(): bool
+    // {
+    //     return auth()->check(); // Or check roles: hasRole('admin')
+    // }
 }

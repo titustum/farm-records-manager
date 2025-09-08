@@ -16,6 +16,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class AnimalResource extends Resource
@@ -60,6 +61,13 @@ class AnimalResource extends Resource
             'view' => ViewAnimal::route('/{record}'),
             'edit' => EditAnimal::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 
     public static function getWidgets(): array

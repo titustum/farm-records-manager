@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class CropResource extends Resource
@@ -59,5 +60,12 @@ class CropResource extends Resource
             'view' => ViewCrop::route('/{record}'),
             'edit' => EditCrop::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 }

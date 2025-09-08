@@ -29,6 +29,8 @@ class AnimalCategoryResource extends Resource
 
     protected static string|UnitEnum|null $navigationGroup = 'Livestock';
 
+    protected static ?string $navigationLabel = 'Categories';
+
     public static function form(Schema $schema): Schema
     {
         return AnimalCategoryForm::configure($schema);

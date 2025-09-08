@@ -25,7 +25,7 @@ class CropSeeder extends Seeder
                 'harvested_at' => Carbon::parse('2025-07-15'),
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'crop_category_id' => $categories['Legumes'] ?? 2,
@@ -35,7 +35,7 @@ class CropSeeder extends Seeder
                 'harvested_at' => Carbon::parse('2025-04-20'),
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'crop_category_id' => $categories['Vegetables'] ?? 3,
@@ -45,7 +45,7 @@ class CropSeeder extends Seeder
                 'harvested_at' => Carbon::parse('2025-06-10'),
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'crop_category_id' => $categories['Roots and Tubers'] ?? 4,
@@ -55,7 +55,7 @@ class CropSeeder extends Seeder
                 'harvested_at' => Carbon::parse('2024-10-30'),
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
         ]);
     }

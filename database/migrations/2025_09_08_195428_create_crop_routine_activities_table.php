@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->decimal('cost', 10, 2)->nullable();
             $table->timestamps();
-            
+
             $table->index('activity_name');
             $table->index('date_performed');
         });

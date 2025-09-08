@@ -6,34 +6,45 @@ use App\Models\CropExpense;
 use App\Models\CropSale;
 use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\Auth;
 
 class CropSalesExpensesComparison extends ChartWidget
 {
-    protected ?string $heading = 'Crop Sales Expenses Comparison';
+    protected ?string $heading = 'Crop Sales vs Expenses Comparison';
 
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 3;
 
     protected function getData(): array
     {
-        // Labels: Months of current year Jan to Dec
+        $user = Auth::user();
+        $isAdmin = $user->role === 'admin';
+
+        $year = now()->year;
+
         $labels = collect(range(1, 12))->map(function ($month) {
             return Carbon::create(null, $month)->format('M');
         })->toArray();
 
-        $year = now()->year;
+        $salesData = collect(range(1, 12))->map(function ($month) use ($year, $isAdmin, $user) {
+            $query = CropSale::whereYear('date', $year)
+                ->whereMonth('date', $month);
 
-        // Sales sum grouped by month for current year
-        $salesData = collect(range(1, 12))->map(function ($month) use ($year) {
-            return CropSale::whereYear('date', $year)
-                ->whereMonth('date', $month)
-                ->sum('amount');
+            if (! $isAdmin) {
+                $query->where('user_id', $user->id);
+            }
+
+            return $query->sum('amount');
         })->toArray();
 
-        // Expenses sum grouped by month for current year
-        $expensesData = collect(range(1, 12))->map(function ($month) use ($year) {
-            return CropExpense::whereYear('date', $year)
-                ->whereMonth('date', $month)
-                ->sum('amount');
+        $expensesData = collect(range(1, 12))->map(function ($month) use ($year, $isAdmin, $user) {
+            $query = CropExpense::whereYear('date', $year)
+                ->whereMonth('date', $month);
+
+            if (! $isAdmin) {
+                $query->where('user_id', $user->id);
+            }
+
+            return $query->sum('amount');
         })->toArray();
 
         return [
@@ -59,4 +70,10 @@ class CropSalesExpensesComparison extends ChartWidget
     {
         return 'line';
     }
+
+    // // Optional: only authenticated users can view the widget
+    // public static function canView(): bool
+    // {
+    //     return auth()->check();
+    // }
 }

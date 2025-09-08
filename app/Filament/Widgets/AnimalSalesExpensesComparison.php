@@ -6,34 +6,45 @@ use App\Models\AnimalExpense;
 use App\Models\AnimalSale;
 use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\Auth;
 
 class AnimalSalesExpensesComparison extends ChartWidget
 {
-    protected ?string $heading = 'Animal Sales Expenses Comparison';
+    protected ?string $heading = 'Animal Sales vs Expenses Comparison';
 
     protected static ?int $sort = 2;
 
     protected function getData(): array
     {
-        // Labels: Months of current year Jan to Dec
+        $user = Auth::user();
+        $isAdmin = $user->role === 'admin';
+
+        $year = now()->year;
+
         $labels = collect(range(1, 12))->map(function ($month) {
             return Carbon::create(null, $month)->format('M');
         })->toArray();
 
-        $year = now()->year;
+        $salesData = collect(range(1, 12))->map(function ($month) use ($year, $isAdmin, $user) {
+            $query = AnimalSale::whereYear('date', $year)
+                ->whereMonth('date', $month);
 
-        // Sales sum grouped by month for current year
-        $salesData = collect(range(1, 12))->map(function ($month) use ($year) {
-            return AnimalSale::whereYear('date', $year)
-                ->whereMonth('date', $month)
-                ->sum('amount');
+            if (! $isAdmin) {
+                $query->where('user_id', $user->id);
+            }
+
+            return $query->sum('amount');
         })->toArray();
 
-        // Expenses sum grouped by month for current year
-        $expensesData = collect(range(1, 12))->map(function ($month) use ($year) {
-            return AnimalExpense::whereYear('date', $year)
-                ->whereMonth('date', $month)
-                ->sum('amount');
+        $expensesData = collect(range(1, 12))->map(function ($month) use ($year, $isAdmin, $user) {
+            $query = AnimalExpense::whereYear('date', $year)
+                ->whereMonth('date', $month);
+
+            if (! $isAdmin) {
+                $query->where('user_id', $user->id);
+            }
+
+            return $query->sum('amount');
         })->toArray();
 
         return [
@@ -59,4 +70,10 @@ class AnimalSalesExpensesComparison extends ChartWidget
     {
         return 'line';
     }
+
+    // Optional: restrict who can view the widget entirely
+    // public static function canView(): bool
+    // {
+    //     return auth()->check(); // or restrict to certain roles here
+    // }
 }

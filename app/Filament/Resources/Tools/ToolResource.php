@@ -15,6 +15,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class ToolResource extends Resource
 {
@@ -25,6 +27,8 @@ class ToolResource extends Resource
     protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::WrenchScrewdriver;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Inventory';
 
     protected static ?int $navigationSort = 10;
 
@@ -58,5 +62,12 @@ class ToolResource extends Resource
             'view' => ViewTool::route('/{record}'),
             'edit' => EditTool::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 }

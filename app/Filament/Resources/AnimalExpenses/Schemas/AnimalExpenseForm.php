@@ -3,9 +3,11 @@
 namespace App\Filament\Resources\AnimalExpenses\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class AnimalExpenseForm
 {
@@ -27,6 +29,7 @@ class AnimalExpenseForm
                 DatePicker::make('date')
                     ->required(),
                 TextInput::make('description'),
+                Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
             ]);
     }
 }

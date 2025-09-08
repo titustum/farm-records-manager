@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class AnimalExpenseResource extends Resource
@@ -28,6 +29,8 @@ class AnimalExpenseResource extends Resource
     protected static ?int $navigationSort = 2;
 
     protected static string|UnitEnum|null $navigationGroup = 'Livestock';
+
+    // protected static ?string $navigationLabel = 'Expenses';
 
     public static function form(Schema $schema): Schema
     {
@@ -59,5 +62,12 @@ class AnimalExpenseResource extends Resource
             'view' => ViewAnimalExpense::route('/{record}'),
             'edit' => EditAnimalExpense::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->role !== 'admin') {
+            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        }
     }
 }

@@ -4,17 +4,28 @@ namespace App\Filament\Widgets;
 
 use App\Models\AnimalExpense;
 use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\Auth;
 
 class AnimalExpenseCategoryBreakdown extends ChartWidget
 {
     protected ?string $heading = 'Animal Expense Category Breakdown';
 
-    protected static ?int $sort = 3;
+    protected static ?int $sort = 5;
 
     protected function getData(): array
     {
-        // Get all expense categories with total amount
-        $categories = AnimalExpense::selectRaw('category, SUM(amount) as total')
+        $user = Auth::user();
+        $isAdmin = $user->role === 'admin';
+
+        $query = AnimalExpense::query();
+
+        // If not admin, only show user's data
+        if (! $isAdmin) {
+            $query->where('user_id', $user->id);
+        }
+
+        // Get categories and their total expenses
+        $categories = $query->selectRaw('category, SUM(amount) as total')
             ->groupBy('category')
             ->pluck('total', 'category')
             ->toArray();
@@ -33,16 +44,9 @@ class AnimalExpenseCategoryBreakdown extends ChartWidget
 
     protected function generateColors(int $count): array
     {
-        // Simple color palette, customize as needed
         $palette = [
-            '#EF4444', // red
-            '#F59E0B', // amber
-            '#10B981', // green
-            '#3B82F6', // blue
-            '#8B5CF6', // purple
-            '#EC4899', // pink
-            '#F87171', // light red
-            '#34D399', // light green
+            '#EF4444', '#F59E0B', '#10B981', '#3B82F6',
+            '#8B5CF6', '#EC4899', '#F87171', '#34D399',
         ];
 
         $colors = [];
@@ -55,6 +59,12 @@ class AnimalExpenseCategoryBreakdown extends ChartWidget
 
     protected function getType(): string
     {
-        return 'bar';
+        return 'bar'; // or 'doughnut', 'pie', etc.
     }
+
+    // Optional: restrict widget visibility
+    // public static function canView(): bool
+    // {
+    //     return auth()->check(); // or use roles here
+    // }
 }

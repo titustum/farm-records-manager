@@ -21,7 +21,7 @@ class CropSaleSeeder extends Seeder
                 'description' => 'Sold 10 bags of maize at local market',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Beans',
@@ -30,7 +30,7 @@ class CropSaleSeeder extends Seeder
                 'description' => 'Bean harvest sales from western plot',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Tomatoes',
@@ -39,7 +39,7 @@ class CropSaleSeeder extends Seeder
                 'description' => 'Sale of tomatoes to roadside vendors',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
             [
                 'item' => 'Groundnuts',
@@ -48,7 +48,7 @@ class CropSaleSeeder extends Seeder
                 'description' => '5 bags of groundnuts sold to cooperative',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'user_id'=>1,
+                'user_id' => 1,
             ],
         ]);
     }
