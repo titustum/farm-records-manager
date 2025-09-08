@@ -66,8 +66,12 @@ class CropExpenseResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        if (auth()->user()->role !== 'admin') {
-            return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
+        $query = parent::getEloquentQuery();
+
+        if (auth()->user()?->role !== 'admin') {
+            $query->where('user_id', auth()->id());
         }
+
+        return $query;
     }
 }
