@@ -21,6 +21,7 @@ class CropExpenseSeeder extends Seeder
                 'description' => 'Purchase of maize and bean seeds for rainy season',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'fertilizer',
@@ -29,6 +30,7 @@ class CropExpenseSeeder extends Seeder
                 'description' => 'NPK fertilizer for maize field',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'pesticides',
@@ -37,6 +39,7 @@ class CropExpenseSeeder extends Seeder
                 'description' => 'Insecticide spray for tomatoes',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'wages',
@@ -45,6 +48,7 @@ class CropExpenseSeeder extends Seeder
                 'description' => 'Labor wages for planting and weeding',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'fencing',
@@ -53,6 +57,7 @@ class CropExpenseSeeder extends Seeder
                 'description' => 'Repair and extension of crop field fence',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
         ]);
     }

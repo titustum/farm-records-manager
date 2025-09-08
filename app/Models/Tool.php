@@ -9,6 +9,7 @@ class Tool extends Model
     protected $fillable = [
         'name',
         'status',
+        'user_id',
         'purchased_at',
     ];
 }

@@ -24,6 +24,7 @@ class AnimalSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'name' => 'Goat 002',
@@ -32,6 +33,7 @@ class AnimalSeeder extends Seeder
                 'status' => 'active',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'name' => 'Sheep 003',
@@ -48,6 +50,7 @@ class AnimalSeeder extends Seeder
                 'status' => 'dead',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
         ]);
     }

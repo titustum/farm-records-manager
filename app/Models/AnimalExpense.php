@@ -8,6 +8,7 @@ class AnimalExpense extends Model
 {
     protected $fillable = [
         'category',
+        'user_id',
         'amount',
         'date',
         'description',

@@ -1,61 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🌾 Farm Records Management System (FRMS)
 
-## About Laravel
+A digital platform for managing farm records — including crops, livestock, tools, sales, and expenses — with built-in insights for climate-smart agriculture and trade readiness.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Developed using **Laravel** and **FilamentPHP**, this system is designed for farmers, agricultural trainers, and students to help track farm performance, improve sustainability, and prepare for market access.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📘 Concept
 
-## Learning Laravel
+The **Farm Records Management System (FRMS)** helps farmers record and analyze their day-to-day farming activities in a structured and simple way. It enables data-driven decisions that promote climate resilience, profitability, and sustainable agriculture.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Key Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🐄 **Livestock Records**: Track animals, categories, expenses (e.g. feed, vet care), and sales.
+- 🌾 **Crop Records**: Record crop types, expenses (e.g. seeds, fertilizers), and harvest sales.
+- 📈 **Profit Tracking**: Visualize total sales, expenses, and net profit in real time.
+- 📊 **Analytics Dashboard**: Compare sales vs expenses, view expense breakdowns by category.
+- 🛠 **Tool Management**: Track farm tools and equipment.
+- 🌦 **Climate Requirement Notes**: Add climate suitability notes per crop and animal category.
+- 🔍 **Global Search**: Quickly find any record using the built-in search feature.
+- 👤 **Role-based Access (optional)**: Can be extended to support farm workers, managers, etc.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🧰 Built With
 
-### Premium Partners
+- [Laravel 12+](https://laravel.com/)
+- [FilamentPHP](https://filamentphp.com/)
+- PHP 8.2+
+- MySQL or SQLite
+- TailwindCSS (via Filament)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🛠 Installation
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Clone the repository
+git clone https://github.com/your-username/farm-records-manager.git
+cd farm-records-manager
 
-## Code of Conduct
+# Install dependencies
+composer install
+npm install && npm run build
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-## Security Vulnerabilities
+# Configure DB in .env file
+# Then migrate
+php artisan migrate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# (Optional) Seed demo data
+php artisan db:seed
 
-## License
+# Run the app
+php artisan serve
+````
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 👨‍🏫 Developed By
+
+* **Trainer/Lead Developer**: Titus Kiptanui
+* **Student Collaborator**: Grace M.
+* **Institution**: Tetu Technical and Vocational College
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes under a permissive license. Modify and reuse with attribution.
+ 
+
+Let me know if you'd like:
+- A **custom logo or banner** for the top of the README
+- A **live demo video/gif badge**
+- A **`db:seed` file** with demo animals/crops for exhibition use
+
+Happy to help!

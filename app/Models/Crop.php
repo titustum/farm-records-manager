@@ -8,6 +8,7 @@ class Crop extends Model
 {
     protected $fillable = [
         'name',
+        'user_id',
         'season',
         'planted_at',
         'harvested_at',

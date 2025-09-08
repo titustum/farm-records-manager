@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Filament\Resources\AnimalRoutineActivities;
+
+use App\Filament\Resources\AnimalRoutineActivities\Pages\CreateAnimalRoutineActivity;
+use App\Filament\Resources\AnimalRoutineActivities\Pages\EditAnimalRoutineActivity;
+use App\Filament\Resources\AnimalRoutineActivities\Pages\ListAnimalRoutineActivities;
+use App\Filament\Resources\AnimalRoutineActivities\Pages\ViewAnimalRoutineActivity;
+use App\Filament\Resources\AnimalRoutineActivities\Schemas\AnimalRoutineActivityForm;
+use App\Filament\Resources\AnimalRoutineActivities\Schemas\AnimalRoutineActivityInfolist;
+use App\Filament\Resources\AnimalRoutineActivities\Tables\AnimalRoutineActivitiesTable;
+use App\Models\AnimalRoutineActivity;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+
+class AnimalRoutineActivityResource extends Resource
+{
+    protected static ?string $model = AnimalRoutineActivity::class;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static ?string $recordTitleAttribute = 'activity_name';
+
+    public static function form(Schema $schema): Schema
+    {
+        return AnimalRoutineActivityForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return AnimalRoutineActivityInfolist::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return AnimalRoutineActivitiesTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListAnimalRoutineActivities::route('/'),
+            'create' => CreateAnimalRoutineActivity::route('/create'),
+            'view' => ViewAnimalRoutineActivity::route('/{record}'),
+            'edit' => EditAnimalRoutineActivity::route('/{record}/edit'),
+        ];
+    }
+}

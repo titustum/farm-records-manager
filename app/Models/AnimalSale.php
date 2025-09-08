@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class AnimalSale extends Model
 {
     protected $fillable = [
-        'item', 'amount', 'date', 'description',
+        'item', 'user_id', 'amount', 'date', 'description',
     ];
 }

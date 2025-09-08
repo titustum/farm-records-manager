@@ -9,6 +9,7 @@ class CropSale extends Model
     protected $fillable = [
         'category',
         'amount',
+        'user_id',
         'date',
         'description',
     ];

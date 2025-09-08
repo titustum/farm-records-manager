@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('crop_sales', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('item'); // e.g., maize, maize
             $table->decimal('amount', 10, 2);
             $table->date('date');

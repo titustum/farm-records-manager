@@ -10,11 +10,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
 </head>
 
 <body class="h-full font-sans antialiased bg-gray-100 text-gray-800">
@@ -22,13 +18,17 @@
     <div class="flex flex-col md:flex-row h-screen">
 
         <!-- LEFT SIDE: Features + CTA -->
-        <div class="md:w-1/2 w-full bg-green-700 text-white flex items-center justify-center p-8 md:p-16">
-            <div class="max-w-xl space-y-6">
-                <h1 class="text-5xl font-bold leading-tight">Simplify Your Farm Management</h1>
+        <div class="md:w-1/2 w-full bg-green-700 min-h-screen text-white flex items-center justify-center p-8 md:p-16">
+            <div class="max-w-xl space-y-6 text-center lg:text-left">
+                <div>
+                    <img src="{{  asset('images/transparent-tetu-logo.png') }}" alt="Tetu TVC Logo"
+                        class="mx-auto h-30 lg:h-40">
+                </div>
+                <h1 class="text-3xl lg:text-5xl font-bold leading-tight">Simplify Your Farm Management</h1>
                 <p class="text-lg opacity-90">Track everything from animals to crops — all in one intuitive platform.
                 </p>
 
-                <ul class="space-y-2 text-base font-medium">
+                <ul class="space-y-2 text-base font-medium mx-auto">
                     <li class="flex items-center gap-2">
                         <svg class="w-5 h-5 text-white/90" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
@@ -72,7 +72,7 @@
         </div>
 
         <!-- RIGHT SIDE: Background Image -->
-        <div class="md:w-1/2 w-full bg-cover bg-center"
+        <div class="md:w-1/2 hidden lg:inline w-full bg-cover bg-center"
             style="background-image: url('{{ asset('images/dairy-cows-grazing.avif') }}');" role="img"
             aria-label="Dairy animals grazing on pasture">
         </div>

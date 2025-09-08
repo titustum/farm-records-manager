@@ -21,6 +21,7 @@ class AnimalExpenseSeeder extends Seeder
                 'description' => 'Purchase of animal feed for August',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'medical',
@@ -29,6 +30,7 @@ class AnimalExpenseSeeder extends Seeder
                 'description' => 'Vaccination and deworming',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'wages',
@@ -37,6 +39,7 @@ class AnimalExpenseSeeder extends Seeder
                 'description' => 'Monthly wages for animal caretaker',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
             [
                 'category' => 'feed',
@@ -45,6 +48,7 @@ class AnimalExpenseSeeder extends Seeder
                 'description' => 'Extra feed for breeding season',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id'=>1,
             ],
         ]);
     }

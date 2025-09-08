@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('animal_expenses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('category'); // e.g., medical, feed, wages
             $table->decimal('amount', 10, 2);
             $table->date('date');

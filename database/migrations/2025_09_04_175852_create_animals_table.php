@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('animal_category_id')->constrained()->onDelete('cascade');
             $table->date('birth_date')->nullable();
             $table->string('status')->default('active'); // or sold, dead

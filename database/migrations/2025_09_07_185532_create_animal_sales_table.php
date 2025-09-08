@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('animal_sales', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('item'); // e.g., milk, maize
             $table->decimal('amount', 10, 2);
             $table->date('date');

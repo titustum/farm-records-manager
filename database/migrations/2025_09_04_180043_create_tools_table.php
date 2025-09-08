@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('status')->default('available'); // or 'in_maintenance'
             $table->integer('cost')->nullable();
             $table->date('purchased_at')->nullable();
