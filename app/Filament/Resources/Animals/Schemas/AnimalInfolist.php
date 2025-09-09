@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Animals\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class AnimalInfolist
@@ -11,15 +12,21 @@ class AnimalInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
-                TextEntry::make('type'),
-                TextEntry::make('birth_date')
-                    ->date(),
-                TextEntry::make('status'),
-                TextEntry::make('created_at')
-                    ->dateTime(),
-                TextEntry::make('updated_at')
-                    ->dateTime(),
+                Section::make('Animal Details')
+                    ->columns(2)
+                    ->columnSpanFull()
+                    ->schema([
+                            TextEntry::make('name'),
+                            TextEntry::make('category.name')
+                                ->label('Category'),
+                            TextEntry::make('birth_date')
+                                ->date(),
+                            TextEntry::make('status'),
+                            TextEntry::make('created_at')
+                                ->dateTime(),
+                            TextEntry::make('updated_at')
+                                ->dateTime(),
+                    ]),
             ]);
     }
 }

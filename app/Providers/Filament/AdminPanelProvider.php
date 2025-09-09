@@ -59,6 +59,9 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->favicon(asset('images/transparent-tetu-logo.png'))
+            ->brandName('Tetu Farm Management')
+            ->brandLogo(asset('images/farm-records-svg-logo.svg'))
+            ->brandLogoHeight('50px')
             ->navigationGroups([
                 'Livestock', // This group will appear first
                 'Crop Products', // This group will appear second

@@ -6,6 +6,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,16 +16,21 @@ class AnimalForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                Select::make('animal_category_id')
-                    ->relationship('category', 'name')
-                    ->required(),
-                DatePicker::make('birth_date'),
-                TextInput::make('status')
-                    ->required()
-                    ->default('active'),
-                Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
+                Section::make('Animal Details')
+                    ->columns(2)
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('name')
+                            ->required(),
+                        Select::make('animal_category_id')
+                            ->relationship('category', 'name')
+                            ->required(),
+                        DatePicker::make('birth_date'),
+                        TextInput::make('status')
+                            ->required()
+                            ->default('active'),
+                        Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
+                    ])
             ]);
     }
 }

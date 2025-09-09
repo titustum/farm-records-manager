@@ -7,6 +7,8 @@
 
     <title>{{ config('app.name', 'Farm Records App') }}</title>
 
+    <link rel="shortcut icon" href="{{ asset('images/transparent-tetu-logo.png') }}" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -21,8 +23,8 @@
         <div class="md:w-1/2 w-full bg-green-700 min-h-screen text-white flex items-center justify-center p-8 md:p-16">
             <div class="max-w-xl space-y-6 text-center lg:text-left">
                 <div>
-                    <img src="{{  asset('images/transparent-tetu-logo.png') }}" alt="Tetu TVC Logo"
-                        class="mx-auto h-30 lg:h-40">
+                    <img src="{{  asset('images/farm-records-svg-logo.svg') }}" alt="Tetu TVC Logo"
+                        class="mx-auto h-30 lg:h-40 bg-white p-2 rounded-lg shadow-lg lg:mx-0">
                 </div>
                 <h1 class="text-3xl lg:text-5xl font-bold leading-tight">Simplify Your Farm Management</h1>
                 <p class="text-lg opacity-90">Track everything from animals to crops — all in one intuitive platform.
