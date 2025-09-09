@@ -11,7 +11,7 @@ class AnimalSaleInfolist
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([ 
+            ->components([
                 Section::make('Animal Sale Details')
                     ->columns(2)
                     ->columnSpanFull()
@@ -27,7 +27,7 @@ class AnimalSaleInfolist
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
-                    ])
+                    ]),
             ]);
     }
 }

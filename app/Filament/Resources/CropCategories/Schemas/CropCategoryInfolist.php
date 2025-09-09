@@ -25,7 +25,7 @@ class CropCategoryInfolist
                         TextEntry::make('updated_at')
                             ->dateTime(),
 
-                    ])
+                    ]),
             ]);
     }
 }

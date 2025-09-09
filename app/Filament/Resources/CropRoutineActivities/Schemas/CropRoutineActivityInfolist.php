@@ -11,8 +11,8 @@ class CropRoutineActivityInfolist
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([ 
-                 Section::make('Crop Routine Activities Details')
+            ->components([
+                Section::make('Crop Routine Activities Details')
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
@@ -27,7 +27,7 @@ class CropRoutineActivityInfolist
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
-                    ])
+                    ]),
             ]);
     }
 }

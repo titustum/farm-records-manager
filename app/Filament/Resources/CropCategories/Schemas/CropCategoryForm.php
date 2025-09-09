@@ -25,7 +25,7 @@ class CropCategoryForm
                             ->image(),
                         Textarea::make('description')
                             ->columnSpanFull(),
-                    ]) 
+                    ]),
             ]);
     }
 }

@@ -15,6 +15,8 @@ class CropsTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')
+                    ->searchable(),
                 TextColumn::make('cropCategory.name')
                     ->sortable(),
                 TextColumn::make('season')

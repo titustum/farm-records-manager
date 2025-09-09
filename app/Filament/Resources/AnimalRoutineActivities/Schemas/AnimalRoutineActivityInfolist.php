@@ -28,7 +28,7 @@ class AnimalRoutineActivityInfolist
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
-                    ])
+                    ]),
             ]);
     }
 }

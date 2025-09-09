@@ -9,7 +9,6 @@ use App\Filament\Resources\Animals\Pages\ViewAnimal;
 use App\Filament\Resources\Animals\Schemas\AnimalForm;
 use App\Filament\Resources\Animals\Schemas\AnimalInfolist;
 use App\Filament\Resources\Animals\Tables\AnimalsTable;
-use App\Livewire\AnimalCategoryStats;
 use App\Models\Animal;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -72,12 +71,5 @@ class AnimalResource extends Resource
         }
 
         return $query;
-    }
-
-    public static function getWidgets(): array
-    {
-        return [
-            AnimalCategoryStats::class,
-        ];
     }
 }

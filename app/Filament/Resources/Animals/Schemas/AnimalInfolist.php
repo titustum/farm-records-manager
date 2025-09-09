@@ -16,16 +16,16 @@ class AnimalInfolist
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
-                            TextEntry::make('name'),
-                            TextEntry::make('category.name')
-                                ->label('Category'),
-                            TextEntry::make('birth_date')
-                                ->date(),
-                            TextEntry::make('status'),
-                            TextEntry::make('created_at')
-                                ->dateTime(),
-                            TextEntry::make('updated_at')
-                                ->dateTime(),
+                        TextEntry::make('name'),
+                        TextEntry::make('category.name')
+                            ->label('Category'),
+                        TextEntry::make('birth_date')
+                            ->date(),
+                        TextEntry::make('status'),
+                        TextEntry::make('created_at')
+                            ->dateTime(),
+                        TextEntry::make('updated_at')
+                            ->dateTime(),
                     ]),
             ]);
     }

@@ -16,17 +16,17 @@ class AnimalExpenseInfolist
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
-                            TextEntry::make('category'),
-                            TextEntry::make('amount')
-                                ->numeric(),
-                            TextEntry::make('date')
-                                ->date(),
-                            TextEntry::make('description'),
-                            TextEntry::make('created_at')
-                                ->dateTime(),
-                            TextEntry::make('updated_at')
-                                ->dateTime(),
-                    ]) 
+                        TextEntry::make('category'),
+                        TextEntry::make('amount')
+                            ->numeric(),
+                        TextEntry::make('date')
+                            ->date(),
+                        TextEntry::make('description'),
+                        TextEntry::make('created_at')
+                            ->dateTime(),
+                        TextEntry::make('updated_at')
+                            ->dateTime(),
+                    ]),
             ]);
     }
 }

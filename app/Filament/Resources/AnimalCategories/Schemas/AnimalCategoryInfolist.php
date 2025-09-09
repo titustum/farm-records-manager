@@ -19,15 +19,14 @@ class AnimalCategoryInfolist
                     ->columnSpanFull()
                     ->schema([
 
+                        TextEntry::make('name'),
+                        ImageEntry::make('image'),
+                        TextEntry::make('created_at')
+                            ->dateTime(),
+                        TextEntry::make('updated_at')
+                            ->dateTime(),
 
-                TextEntry::make('name'),
-                ImageEntry::make('image'),
-                TextEntry::make('created_at')
-                    ->dateTime(),
-                TextEntry::make('updated_at')
-                    ->dateTime(),
-
-                    ]) 
+                    ]),
             ]);
     }
 }

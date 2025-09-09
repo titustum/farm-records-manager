@@ -12,7 +12,7 @@ class ToolInfolist
     {
         return $schema
             ->components([
-                 Section::make('Tool Details')
+                Section::make('Tool Details')
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
@@ -24,7 +24,7 @@ class ToolInfolist
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
-                    ]) 
+                    ]),
             ]);
     }
 }

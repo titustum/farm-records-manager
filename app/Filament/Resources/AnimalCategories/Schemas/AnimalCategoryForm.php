@@ -24,7 +24,7 @@ class AnimalCategoryForm
                             ->image(),
                         Textarea::make('description')
                             ->columnSpanFull(),
-                    ])
+                    ]),
             ]);
     }
 }

@@ -36,7 +36,7 @@ class CropExpenseForm
                             ->required(),
                         TextInput::make('description'),
                         Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
-                    ]) 
+                    ]),
             ]);
     }
 }

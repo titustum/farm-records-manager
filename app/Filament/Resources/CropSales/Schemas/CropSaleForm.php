@@ -19,7 +19,7 @@ class CropSaleForm
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
-                                
+
                         TextInput::make('item')
                             ->required(),
                         TextInput::make('amount')
@@ -29,7 +29,7 @@ class CropSaleForm
                             ->required(),
                         TextInput::make('description'),
                         Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
-                    ]) 
+                    ]),
             ]);
     }
 }

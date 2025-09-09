@@ -27,7 +27,7 @@ class ToolForm
                             ->default('available'),
                         DatePicker::make('purchased_at'),
                         Hidden::make('user_id')->default(fn () => Auth::id()), // Add a hidden field for user_id
-                    ]) 
+                    ]),
             ]);
     }
 }

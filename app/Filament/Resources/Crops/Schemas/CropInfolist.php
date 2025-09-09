@@ -12,7 +12,7 @@ class CropInfolist
     {
         return $schema
             ->components([
-                 Section::make('Crop Details')
+                Section::make('Crop Details')
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
@@ -28,7 +28,7 @@ class CropInfolist
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
-                    ])
+                    ]),
             ]);
     }
 }

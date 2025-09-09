@@ -12,12 +12,11 @@ class CropExpenseInfolist
     {
         return $schema
             ->components([
-                 Section::make('Crop Expense Details')
+                Section::make('Crop Expense Details')
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
 
-                        
                         TextEntry::make('category'),
                         TextEntry::make('amount')
                             ->numeric(),
@@ -29,7 +28,7 @@ class CropExpenseInfolist
                         TextEntry::make('updated_at')
                             ->dateTime(),
 
-                    ])
+                    ]),
             ]);
     }
 }
